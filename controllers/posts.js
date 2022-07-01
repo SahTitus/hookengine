@@ -1,4 +1,4 @@
-import Post from "../model/Post.js";
+import Post from "../model/post.js";
 import mongoose from "mongoose";
 
 export const getPosts = async (req, res) => {
