@@ -15,9 +15,9 @@ const app = express();
 
 connectDB();
 
-// app.use(credentials);
+app.use(credentials);
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use((req,res, next)=>{
  
