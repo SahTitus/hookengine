@@ -9,9 +9,9 @@ import dotenv from "dotenv";
 import credentials from './middleware/credentials.js'
 import postRoutes from './routes/posts.js'
 
+const app = express();
 dotenv.config();
 const PORT = process.env.PORT || 5000;
-const app = express();
 
 connectDB();
 
