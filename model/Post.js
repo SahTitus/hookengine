@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema({
 	text: String,
+	username: String,
+	userId: String,
 	description: String,
 	groupName: String,
 	image: String,
@@ -11,6 +13,7 @@ const postSchema = mongoose.Schema({
 	pollQuestion: String,
 	pollOptions: [String],
 	link: String,
+	linkDetails: {},
 	createdAt: {
 		type: Date,
 		default: Date.now,
