@@ -4,7 +4,6 @@ const postSchema = mongoose.Schema({
 	text: String,
 	description: String,
 	groupName: String,
-	image: String,
 	question: String,
 	pollQuestion: String,
 	pollOptions: [String],
