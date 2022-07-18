@@ -1,6 +1,5 @@
 import Post from "../model/post.js";
 import mongoose from "mongoose";
-// import cloudinary from "../config/cloudinary.js";
 
 export const getPosts = async (req, res) => {
   const posts = await Post.find();
@@ -24,7 +23,6 @@ export const getPost = async (req, res) => {
 
 export const createPost = async (req, res) => {
   const post = req.body;
-
   try {
     const result = await Post.create(post);
     res.status(201).json(result);
