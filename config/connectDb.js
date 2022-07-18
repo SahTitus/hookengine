@@ -5,8 +5,8 @@ export const connectDB = async () => {
     await mongoose.connect(process.env.DATABASE_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    });
+    }); 
   } catch (err) {
     console.error(err);
-  }
+  } 
 };

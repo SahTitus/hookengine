@@ -9,11 +9,22 @@ const postSchema = mongoose.Schema({
 	description: String,
 	groupName: String,
 	image: String,
+	// image: {
+	// 	public_id: {
+	// 		type: String,
+	// 		required: false,
+	// 	},
+	// 	url: {
+	// 		type: String,
+	// 		required: false,
+	// 	}
+	// },
 	question: String,
 	pollQuestion: String,
 	pollOptions: [String],
 	link: String,
-	linkDetails: {},
+	linkData: {},
+	imageData: {},
 	createdAt: {
 		type: Date,
 		default: Date.now,

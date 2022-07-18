@@ -16,4 +16,4 @@ router.route("/:id").patch(updatePost);
 
 router.route("/:id").get(getPost);
 
-export default router;
+export default router; 
