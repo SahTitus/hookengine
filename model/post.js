@@ -1,13 +1,12 @@
 import mongoose from "mongoose";
 
-// const Schema = mongoose.Schema;
-
 const postSchema = mongoose.Schema({
 	text: String,
 	username: String,
 	userId: String,
 	description: String,
 	groupName: String,
+<<<<<<< HEAD:model/Post.js
 	image: String,
 	// image: {
 	// 	public_id: {
@@ -19,6 +18,8 @@ const postSchema = mongoose.Schema({
 	// 		required: false,
 	// 	}
 	// },
+=======
+>>>>>>> 2c224ff8dd3b4a7e7568acf3458bd052ff361b72:model/post.js
 	question: String,
 	pollQuestion: String,
 	pollOptions: [String],
