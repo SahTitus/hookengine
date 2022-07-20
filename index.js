@@ -46,14 +46,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
-<<<<<<< HEAD
 
-app.use(bodyParser.json({ limit: '50mb'}));
-app.use(bodyParser.urlencoded({ limit: '50mb',   parameterLimit: 100000, extended: true }));
-=======
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
->>>>>>> 2c224ff8dd3b4a7e7568acf3458bd052ff361b72
+
 
 app.use('/posts', postRoutes);
 app.use('/link', linkAllow, linkRoutes)
