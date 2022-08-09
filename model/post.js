@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 const postSchema = mongoose.Schema({
 	text: String,
 	creatorName: String,
+	creator: String,
 	userId: String,
+	userDp: String,
 	description: String,
 	groupName: String,
 	question: String,
@@ -12,9 +14,11 @@ const postSchema = mongoose.Schema({
 	link: String,
 	linkData: {},
 	imageData: {},
+	tags: [String],
+	likes: {type: [String], default: []},
 	createdAt: {
 		type: Date,
-		default: Date.now,
+		default: new Date(),
 	},
 	repost: Boolean,
 });
