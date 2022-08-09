@@ -45,7 +45,7 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 
 app.use('/posts', postRoutes);
 app.use('/user', userRoutes);
-app.use('/link', linkAllow, linkRoutes)
+app.use('/link', linkAllow, linkRoutes);
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB 😆');
