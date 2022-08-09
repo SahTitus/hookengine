@@ -20,7 +20,16 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 app.use(cors(corsOptions));
-app.use(credentials);
+// app.use(credentials);
+app.use((req,res,next)=>{
+    res.header('Access-Control-Allow-Headers, *, Access-Control-Allow-Origin', 'Origin, X-Requested-with, Content_Type,Accept,Authorization','http://localhost:4200');
+    if(req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods','PUT,POST,PATCH,DELETE,GET');
+        return res.status(200).json({});
+    }
+    next();
+});
+
 
 // app.set('trust proxy', 1)
 // app.use(
