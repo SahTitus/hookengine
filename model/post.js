@@ -4,7 +4,6 @@ const postSchema = mongoose.Schema({
 	text: String,
 	creatorName: String,
 	creator: String,
-	userId: String,
 	userDp: String,
 	description: String,
 	groupName: String,
@@ -15,7 +14,9 @@ const postSchema = mongoose.Schema({
 	linkData: {},
 	imageData: {},
 	tags: [String],
-	likes: {type: [String], default: []},
+	likes: {
+		type: [String], 
+		default: []},
 	createdAt: {
 		type: Date,
 		default: new Date(),
