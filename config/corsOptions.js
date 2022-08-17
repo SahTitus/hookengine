@@ -8,7 +8,6 @@ const corsOptions = {
 			callback(new Error("Not allowed by CORS 😆"));
 		}
 	},
-	methods: "GET, PUT, PATCH, POST, DELETE, OPTIONS",
 	optionsSuccessStatus: 200,
 };
 
