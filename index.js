@@ -8,6 +8,7 @@ import { connectDB } from "./config/connectDb.js";
 import dotenv from "dotenv";
 import credentials from "./middleware/credentials.js";
 import postRoutes from "./routes/posts.js";
+import commentRoutes from "./routes/comments.js";
 import userRoutes from "./routes/users.js";
 import linkRoutes from "./routes/link.js";
 import linkAllow from "./middleware/linkAllow.js";
@@ -55,6 +56,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use("/posts", postRoutes);
+app.use("/comments", commentRoutes);
 app.use("/user", userRoutes);
 app.use("/link", linkAllow, linkRoutes);
 

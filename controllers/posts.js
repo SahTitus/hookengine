@@ -24,7 +24,11 @@ export const getPost = async (req, res) => {
 export const createPost = async (req, res) => {
   const post = req.body;
   try {
-    const result = await Post.create({...post, creator: req.userId, createdAt: new Date().toISOString()});
+    const result = await Post.create({
+      ...post,
+      creator: req.userId,
+      createdAt: new Date().toISOString(),
+    });
     res.status(201).json(result);
   } catch (err) {
     console.error(err);
@@ -76,6 +80,45 @@ export const likePost = async (req, res) => {
   } else {
     post.likes = post.likes.filter((id) => id !== String(req.userId));
   }
+
+  const updatedPost = await Post.findByIdAndUpdate(id, post, { new: true });
+
+  res.json(updatedPost);
+};
+export const rePost = async (req, res) => {
+  const { id } = req.params;
+
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(400).send({ message: `Post ID ${id} not found` });
+
+  const post = await Post.findById(id);
+
+  const index = post.reposts.findIndex((id) => id === String(req.userId));
+
+  if (index === -1) {
+    post.reposts.push(req.userId);
+  } else {
+    post.reposts = post.reposts.filter((id) => id !== String(req.userId));
+  }
+
+  const updatedPost = await Post.findByIdAndUpdate(id, post, { new: true });
+
+  res.json(updatedPost);
+};
+
+export const commentPost = async (req, res) => {
+  const { id } = req.params;
+
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(400).send({ message: `Post ID ${id} not found` });
+
+  const post = await Post.findById(id);
+
+  post.comments.push(req.userId);
 
   const updatedPost = await Post.findByIdAndUpdate(id, post, { new: true });
 
