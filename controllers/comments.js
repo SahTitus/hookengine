@@ -7,6 +7,7 @@ export const addComment = async (req, res) => {
   try {
     const comments = {
       ...commentData,
+      id: Math.floor(Math.random() * 100) *149126400,
       creator: req.userId,
       createdAt: new Date().toISOString(),
     };
@@ -34,6 +35,7 @@ export const getComment = async (req, res) => {
 export const updateComments = async (req, res) => {
   const { id } = req.params;
   const { commentData, postId } = req.body;
+  console.log(Math.floor(Math.random() * 100) *149126400)
 
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(400).send({ message: `Comment ID ${id} not found` });
@@ -42,6 +44,7 @@ export const updateComments = async (req, res) => {
 
   comment.comments.push({
     ...commentData,
+    id: Math.floor(Math.random() * 100) *149126400,
     createdAt: new Date().toISOString(),
   });
 
