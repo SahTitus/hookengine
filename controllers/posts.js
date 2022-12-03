@@ -9,6 +9,13 @@ export const getPosts = async (req, res) => {
   res.json(posts);
 };
 
+  // const chatRooms = await Room.find({
+  //   users: {
+  //     $in: [id],
+  //   },
+  // }).sort({ updatedAt: -1 });
+  // .populate("users latestMessage");
+
 export const getPost = async (req, res) => {
   const postId = req?.params?.id;
   if (!postId) {

@@ -17,6 +17,7 @@ export const addReply = async (req, res) => {
   foundComment.replies.push({
     ...body,
     id: Math.floor(Math.random() * 100) * 149126400,
+    
     createdAt: new Date().toISOString(),
   });
 
